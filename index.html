@@ -31,6 +31,12 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
+	<!-- polyfill -->
+	<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+	<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+	<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+
 </head>
 
 <body id="top">
@@ -630,7 +636,7 @@
 
 	      		<div class="subscribe-form">
 	      	
-	      			<form id="mc-form" class="group" novalidate="true" action="link_to_google_script">
+	      			<form id="mc-form" name="submit-to-google-sheet" class="group" novalidate="true" action="link_to_google_script">
 
 							<input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="your email" required=""> 
 	   		
@@ -640,7 +646,18 @@
 		   				<label for="mc-email" class="subscribe-message"></label>
 			
 					</form>
-					<!-- 1QgOWxQo1iqV_xZlTwVNEcyXZdPqRQBZ9DSASnSRUCTk -->
+					<!-- https://script.google.com/macros/s/AKfycbzsisT2usfqRZ4TzyP81nb0RfkE7FU0hODUdTsdwiuffTebHt3E/exec -->
+					<script>
+					  const scriptURL = 'https://script.google.com/macros/s/AKfycbzsisT2usfqRZ4TzyP81nb0RfkE7FU0hODUdTsdwiuffTebHt3E/exec'
+					  const form = document.forms['submit-to-google-sheet']
+
+					  form.addEventListener('submit', e => {
+					    e.preventDefault()
+					    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+					      .then(response => console.log('Success!', response))
+					      .catch(error => console.error('Error!', error.message))
+					  })
+					</script>
 
 	      		</div>
 	      	           	
