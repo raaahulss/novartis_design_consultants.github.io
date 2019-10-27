@@ -552,6 +552,18 @@
 							</div>
 						</div>
                </div>
+               <!-- https://script.google.com/macros/s/AKfycbyoau7EnkrXUHT2yfcIiwk9dxyD4VY6aXHUCdg7LEuX-TUk7MU/exec -->
+               <script>
+				  const scriptURL = 'https://script.google.com/macros/s/AKfycbyoau7EnkrXUHT2yfcIiwk9dxyD4VY6aXHUCdg7LEuX-TUk7MU/exec'
+				  const form = document.forms['contactForm']
+
+				  form.addEventListener('submit', e => {
+				    e.preventDefault()
+				    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				      .then(response => console.log('Success!', response))
+				      .catch(error => console.error('Error!', error.message))
+				  })
+				</script>
 
       		</form> <!-- end form -->
 

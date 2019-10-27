@@ -10,7 +10,7 @@
 	var cfg = {		
 		defAnimation   : "fadeInUp",    // default css animation		
 		scrollDuration : 800,           // smoothscroll duration
-		mailChimpURL   : 'http://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e65110b38d'
+		// mailChimpURL   : 'http://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e65110b38d'
 	},	
 
 	$WIN = $(window);
@@ -300,48 +300,48 @@
 
   /* Contact Form
    * ------------------------------------------------------ */
-   var ssContactForm = function() {   	
+  //  var ssContactForm = function() {   	
 
-   	/* local validation */   	
-		$('#contactForm').validate({
+  //  	/* local validation */   	
+		// $('#contactForm').validate({
 
-			/* submit via ajax */
-			submitHandler: function(form) {				
-				var sLoader = $('#submit-loader');			
+		// 	/* submit via ajax */
+		// 	submitHandler: function(form) {				
+		// 		var sLoader = $('#submit-loader');			
 
-				$.ajax({   	
-			      type: "POST",
-			      url: "inc/sendEmail.php",
-			      data: $(form).serialize(),
+		// 		$.ajax({   	
+		// 	      type: "POST",
+		// 	      url: "inc/sendEmail.php",
+		// 	      data: $(form).serialize(),
 
-			      beforeSend: function() { 
-			      	sLoader.fadeIn(); 
-			      },
-			      success: function(msg) {
-		            // Message was sent
-		            if (msg == 'OK') {
-		            	sLoader.fadeOut(); 
-		               $('#message-warning').hide();
-		               $('#contactForm').fadeOut();
-		               $('#message-success').fadeIn();   
-		            }
-		            // There was an error
-		            else {
-		            	sLoader.fadeOut(); 
-		               $('#message-warning').html(msg);
-			            $('#message-warning').fadeIn();
-		            }
-			      },
-			      error: function() {
-			      	sLoader.fadeOut(); 
-			      	$('#message-warning').html("Something went wrong. Please try again.");
-			         $('#message-warning').fadeIn();
-			      }
-		      });    		
-	  		}
+		// 	      beforeSend: function() { 
+		// 	      	sLoader.fadeIn(); 
+		// 	      },
+		// 	      success: function(msg) {
+		//             // Message was sent
+		//             if (msg == 'OK') {
+		//             	sLoader.fadeOut(); 
+		//                $('#message-warning').hide();
+		//                $('#contactForm').fadeOut();
+		//                $('#message-success').fadeIn();   
+		//             }
+		//             // There was an error
+		//             else {
+		//             	sLoader.fadeOut(); 
+		//                $('#message-warning').html(msg);
+		// 	            $('#message-warning').fadeIn();
+		//             }
+		// 	      },
+		// 	      error: function() {
+		// 	      	sLoader.fadeOut(); 
+		// 	      	$('#message-warning').html("Something went wrong. Please try again.");
+		// 	         $('#message-warning').fadeIn();
+		// 	      }
+		//       });    		
+	 //  		}
 
-		});
-   };	
+		// });
+  //  };	
 
 
   /* AjaxChimp
